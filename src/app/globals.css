@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111827;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
+
+/* Animations custom */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+body {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Style d'entrée personnalisé */
+input::placeholder {
+  color: #9ca3af;
+}
+
+/* Liens avec transition lisse */
+a {
+  transition: all 0.3s ease;
+}
+
+/* Background avec effet subtil */
+body {
+  background: linear-gradient(135deg, #000000 0%, #0f172a 50%, #000000 100%);
+  background-attachment: fixed;
+}
