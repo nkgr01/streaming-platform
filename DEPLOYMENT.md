@@ -14,7 +14,7 @@
 
 ```bash
 # Cloner le repository
-git clone https://github.com/votre-username/streaming-platform.git
+git clone https://github.com/nkgr01/streaming-platform.git
 cd streaming-platform
 
 # Installer les dépendances
@@ -70,7 +70,7 @@ git commit -m "Initial commit: StreamingPlatform"
 
 ```bash
 # Ajouter le remote GitHub
-git remote add origin https://github.com/votre-username/streaming-platform.git
+git remote add origin https://github.com/nkgr01/streaming-platform.git
 
 # Renommer la branche pour matcher GitHub
 git branch -M main
@@ -196,7 +196,7 @@ Get-Process -Id (Get-NetTCPConnection -LocalPort 3000).OwningProcess | Stop-Proc
 - 📖 [Documentation Next.js](https://nextjs.org/docs)
 - 🎬 [API TMDB](https://www.themoviedb.org/settings/api)
 - 🚀 [Documentation Vercel](https://vercel.com/docs)
-- 💬 [GitHub Issues](https://github.com/votre-username/streaming-platform/issues)
+- 💬 [GitHub Issues](https://github.com/nkgr01/streaming-platform/issues)
 
 ---
 

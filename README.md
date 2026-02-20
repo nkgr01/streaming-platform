@@ -19,7 +19,7 @@ Une plateforme de streaming moderne pour découvrir films et séries avec une in
 
 ```bash
 # Cloner le repository
-git clone https://github.com/votre-username/streaming-platform.git
+git clone https://github.com/nkgr01/streaming-platform.git
 cd streaming-platform
 
 # Installer les dépendances

@@ -15,11 +15,11 @@ Tous les contributeurs sont tenus de suivre ce code de conduite.
 # Forker sur GitHub (bouton "Fork" en haut à droite)
 
 # Cloner votre fork
-git clone https://github.com/votre-username/streaming-platform.git
+git clone https://github.com/nkgr01/streaming-platform.git
 cd streaming-platform
 
 # Ajouter le upstream
-git remote add upstream https://github.com/original-author/streaming-platform.git
+git remote add upstream https://github.com/nkgr01/streaming-platform.git
 ```
 
 ### 2. Créer une branche
