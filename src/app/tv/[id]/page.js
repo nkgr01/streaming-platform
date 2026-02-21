@@ -48,7 +48,7 @@ async function TVPage({ params }) {
       <div className="max-w-7xl mx-auto px-6 py-6">
         <Link href="/">
           <button className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors">
-            ← Retour à l'accueil
+            &larr; Retour
           </button>
         </Link>
       </div>
@@ -137,7 +137,7 @@ async function TVPage({ params }) {
           <div className="lg:col-span-2">
             <h1 className="text-5xl font-bold mb-2">{series.name}</h1>
             {series.tagline && (
-              <p className="text-xl text-gray-400 italic mb-6">"{series.tagline}"</p>
+              <p className="text-xl text-gray-400 italic mb-6">&quot;{series.tagline}&quot;</p>
             )}
             
             <div className="mb-8">

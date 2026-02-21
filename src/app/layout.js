@@ -123,7 +123,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} bg-black text-white`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} bg-black text-white`} suppressHydrationWarning>
         <Navigation />
         {children}
       </body>

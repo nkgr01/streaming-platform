@@ -29,12 +29,16 @@ export default function Navigation() {
               Accueil
             </span>
           </Link>
-          <a href="/" className="text-white hover:text-blue-400 transition-colors font-semibold">
-            Découvrir
-          </a>
-          <a href="/" className="text-white hover:text-blue-400 transition-colors font-semibold">
-            Top 10
-          </a>
+          <Link href="/">
+            <span className="text-white hover:text-blue-400 transition-colors font-semibold">
+              Découvrir
+            </span>
+          </Link>
+          <Link href="/">
+            <span className="text-white hover:text-blue-400 transition-colors font-semibold">
+              Top 10
+            </span>
+          </Link>
         </div>
 
         <button
@@ -52,12 +56,16 @@ export default function Navigation() {
                   Accueil
                 </span>
               </Link>
-              <a href="/" className="block text-white hover:text-blue-400 transition-colors font-semibold">
-                Découvrir
-              </a>
-              <a href="/" className="block text-white hover:text-blue-400 transition-colors font-semibold">
-                Top 10
-              </a>
+              <Link href="/">
+                <span className="block text-white hover:text-blue-400 transition-colors font-semibold">
+                  Découvrir
+                </span>
+              </Link>
+              <Link href="/">
+                <span className="block text-white hover:text-blue-400 transition-colors font-semibold">
+                  Top 10
+                </span>
+              </Link>
             </div>
           </div>
         )}

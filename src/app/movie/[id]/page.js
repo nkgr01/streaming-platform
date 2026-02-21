@@ -82,7 +82,7 @@ async function MoviePage({ params }) {
       <div className="max-w-7xl mx-auto px-6 py-6">
         <Link href="/">
           <button className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors">
-            ← Retour à l'accueil
+            ← Retour &agrave; l&apos;accueil
           </button>
         </Link>
       </div>
@@ -171,7 +171,7 @@ async function MoviePage({ params }) {
           <div className="lg:col-span-2">
             <h1 className="text-5xl font-bold mb-2">{movie.title}</h1>
             {movie.tagline && (
-              <p className="text-xl text-gray-400 italic mb-6">"{movie.tagline}"</p>
+              <p className="text-xl text-gray-400 italic mb-6">&quot;{movie.tagline}&quot;</p>
             )}
             
             <div className="mb-8">

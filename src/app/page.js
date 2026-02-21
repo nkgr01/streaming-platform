@@ -37,7 +37,7 @@ export default function HomePage() {
   const displayMovies = hasSearched ? searchResults : movies;
 
   // Structured Data - WebSite Schema
-  React.useEffect(() => {
+  useEffect(() => {
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.innerHTML = JSON.stringify({
