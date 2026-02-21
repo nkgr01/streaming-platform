@@ -9,13 +9,16 @@ export default function HomePage() {
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasSearched, setHasSearched] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
 
   useEffect(() => {
     const loadMovies = async () => {
       try {
-        const res = await fetch('/api/movies/popular');
+        const res = await fetch('/api/movies/popular?page=1');
         const data = await res.json();
         setMovies(data);
+        setCurrentPage(1);
       } catch (error) {
         console.error('Erreur:', error);
       } finally {
@@ -25,9 +28,33 @@ export default function HomePage() {
     loadMovies();
   }, []);
 
-  const handleSearchResults = (results) => {
+  const handleLoadMore = async () => {
+    setIsLoadingMore(true);
+    try {
+      const nextPage = currentPage + 1;
+      if (hasSearched) {
+        const searchQuery = sessionStorage.getItem('lastSearchQuery') || '';
+        const res = await fetch(`/api/search?q=${encodeURIComponent(searchQuery)}&page=${nextPage}`);
+        const data = await res.json();
+        setSearchResults([...searchResults, ...data]);
+      } else {
+        const res = await fetch(`/api/movies/popular?page=${nextPage}`);
+        const data = await res.json();
+        setMovies([...movies, ...data]);
+      }
+      setCurrentPage(nextPage);
+    } catch (error) {
+      console.error('Erreur lors du chargement:', error);
+    } finally {
+      setIsLoadingMore(false);
+    }
+  };
+
+  const handleSearchResults = (results, query) => {
     setSearchResults(results);
     setHasSearched(results.length > 0);
+    setCurrentPage(1);
+    sessionStorage.setItem('lastSearchQuery', query);
   };
 
   const handleSearchLoading = (loading) => {
@@ -75,26 +102,46 @@ export default function HomePage() {
         {/* Titre de la section */}
         <div className="mb-8">
           <h2 className="text-3xl font-bold mb-2">
-            {hasSearched ? '🔍 Résultats de recherche' : '⭐ Films populaires'}
+            {hasSearched ? '🔍 Résultats de recherche' : '⭐ Films et séries populaires'}
           </h2>
           <p className="text-gray-400">
             {hasSearched
               ? `${searchResults.length} résultat${searchResults.length > 1 ? 's' : ''} trouvé${searchResults.length > 1 ? 's' : ''}`
-              : `Découvrez les ${movies.length} films les plus populaires du moment`}
+              : `Découvrez les films et séries les plus populaires du moment`}
           </p>
         </div>
 
-        {/* Grille de films */}
+        {/* Grille de films/séries */}
         {isLoading ? (
           <div className="flex justify-center items-center h-64">
             <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-blue-500"></div>
           </div>
         ) : displayMovies.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {displayMovies.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} />
-            ))}
-          </div>
+          <>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+              {displayMovies.map((movie) => (
+                <MovieCard key={`${movie.media_type}-${movie.id}`} movie={movie} />
+              ))}
+            </div>
+            
+            {/* Bouton Load More */}
+            <div className="flex justify-center mt-12">
+              <button
+                onClick={handleLoadMore}
+                disabled={isLoadingMore}
+                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg font-semibold transition-all duration-200 transform hover:scale-105"
+              >
+                {isLoadingMore ? (
+                  <span className="flex items-center gap-2">
+                    <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-white"></div>
+                    Chargement...
+                  </span>
+                ) : (
+                  '📥 Charger plus'
+                )}
+              </button>
+            </div>
+          </>
         ) : (
           <div className="text-center py-12">
             <p className="text-xl text-gray-400">Aucun résultat trouvé</p>

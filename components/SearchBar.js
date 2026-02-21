@@ -14,7 +14,7 @@ export default function SearchBar({ onResultsChange, onLoading }) {
       try {
         const res = await fetch(`/api/search?q=${encodeURIComponent(value)}`);
         const results = await res.json();
-        onResultsChange(results);
+        onResultsChange(results, value);
       } catch (error) {
         console.error('Erreur de recherche:', error);
         onResultsChange([]);
