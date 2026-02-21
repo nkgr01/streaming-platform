@@ -83,7 +83,7 @@ export default function DiscoverPage() {
         {/* Info */}
         <div className="bg-blue-900/30 border border-blue-700 rounded-lg p-6 text-center">
           <p className="text-gray-300 mb-2">
-            💡 La page Découvrir vous permettra bientôt de filtrer par genre, année de sortie, note, et d'autres critères.
+            💡 La page Découvrir vous permettra bientôt de filtrer par genre, année de sortie, note, et d&apos;autres critères.
           </p>
           <p className="text-gray-400 text-sm">
             En attendant, consultez nos <Link href="/" className="text-blue-400 hover:text-blue-300 font-semibold">films populaires</Link> ou les <Link href="/trending" className="text-red-400 hover:text-red-300 font-semibold">tendances de la semaine</Link>.
