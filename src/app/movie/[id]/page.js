@@ -14,7 +14,7 @@ export async function generateMetadata({ params }) {
       description: movie.overview?.substring(0, 160) || `Découvrez ${movie.title} sur StreamingPlatform`,
       keywords: [movie.title, "film", "cinema", ...movie.genres?.map(g => g.name) || []],
       openGraph: {
-        type: "movie.movie",
+        type: "video.movie",
         url: `${process.env.NEXT_PUBLIC_SITE_URL}/movie/${id}`,
         title: `${movie.title}`,
         description: movie.overview?.substring(0, 160),
