@@ -29,14 +29,14 @@ export default function Navigation() {
               Accueil
             </span>
           </Link>
-          <Link href="/">
-            <span className="text-white hover:text-blue-400 transition-colors font-semibold">
-              Découvrir
+          <Link href="/discover">
+            <span className="text-white hover:text-purple-400 transition-colors font-semibold">
+              🌟 Découvrir
             </span>
           </Link>
-          <Link href="/">
-            <span className="text-white hover:text-blue-400 transition-colors font-semibold">
-              Top 10
+          <Link href="/trending">
+            <span className="text-white hover:text-red-400 transition-colors font-semibold">
+              🔥 Tendances
             </span>
           </Link>
         </div>
@@ -56,14 +56,14 @@ export default function Navigation() {
                   Accueil
                 </span>
               </Link>
-              <Link href="/">
-                <span className="block text-white hover:text-blue-400 transition-colors font-semibold">
-                  Découvrir
+              <Link href="/discover">
+                <span className="block text-white hover:text-purple-400 transition-colors font-semibold">
+                  🌟 Découvrir
                 </span>
               </Link>
-              <Link href="/">
-                <span className="block text-white hover:text-blue-400 transition-colors font-semibold">
-                  Top 10
+              <Link href="/trending">
+                <span className="block text-white hover:text-red-400 transition-colors font-semibold">
+                  🔥 Tendances
                 </span>
               </Link>
             </div>
