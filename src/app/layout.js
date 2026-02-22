@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation from "@components/Navigation";
+import AboutModal from "@components/AboutModal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -125,6 +126,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} bg-black text-white`} suppressHydrationWarning>
         <Navigation />
+        <AboutModal />
         {children}
       </body>
     </html>
