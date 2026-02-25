@@ -13,6 +13,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://streaming-platform.vercel.app"),
   title: {
@@ -80,11 +86,6 @@ export const metadata = {
       "fr": process.env.NEXT_PUBLIC_SITE_URL || "https://streaming-platform.vercel.app",
       "en": `${process.env.NEXT_PUBLIC_SITE_URL}/en` || "https://streaming-platform.vercel.app/en",
     },
-  },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
   },
 };
 

@@ -34,6 +34,11 @@ export default function Navigation() {
               🌟 Découvrir
             </span>
           </Link>
+          <Link href="/shorts">
+            <span className="text-white hover:text-yellow-400 transition-colors font-semibold">
+              🎬 Extraits
+            </span>
+          </Link>
           <Link href="/trending">
             <span className="text-white hover:text-red-400 transition-colors font-semibold">
               🔥 Tendances
@@ -59,6 +64,11 @@ export default function Navigation() {
               <Link href="/discover">
                 <span className="block text-white hover:text-purple-400 transition-colors font-semibold">
                   🌟 Découvrir
+                </span>
+              </Link>
+              <Link href="/shorts">
+                <span className="block text-white hover:text-yellow-400 transition-colors font-semibold">
+                  🎬 Extraits
                 </span>
               </Link>
               <Link href="/trending">

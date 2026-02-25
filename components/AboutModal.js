@@ -1,9 +1,32 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function AboutModal() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+  const pathname = usePathname();
+
+  // Charger l'état de visibilité et monter le composant
+  useEffect(() => {
+    const hidden = localStorage.getItem('aboutModalHidden') === 'true';
+    setIsHidden(hidden);
+    setIsMounted(true);
+  }, []);
+
+  // Sauvegarder l'état caché
+  useEffect(() => {
+    if (isMounted) {
+      localStorage.setItem('aboutModalHidden', JSON.stringify(isHidden));
+    }
+  }, [isHidden, isMounted]);
+
+  // Ne montrer que sur la page d'accueil
+  if (!isMounted || pathname !== '/' || isHidden) {
+    return null;
+  }
 
   return (
     <>
@@ -79,12 +102,21 @@ export default function AboutModal() {
             </div>
 
             {/* Pied de page */}
-            <div className="bg-gray-50 px-8 py-4 border-t border-gray-200 text-center">
+            <div className="bg-gray-50 px-8 py-4 border-t border-gray-200 text-center flex gap-3">
               <button
                 onClick={() => setIsOpen(false)}
-                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-lg hover:shadow-lg transition-all"
+                className="flex-1 bg-gray-300 text-gray-800 px-6 py-2 rounded-lg hover:bg-gray-400 transition"
               >
                 Fermer
+              </button>
+              <button
+                onClick={() => {
+                  setIsOpen(false);
+                  setIsHidden(true);
+                }}
+                className="flex-1 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition"
+              >
+                Ne plus afficher
               </button>
             </div>
           </div>
