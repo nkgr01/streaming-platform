@@ -19,7 +19,7 @@ export const viewport = {
 };
 
 export const metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://streaming-platform.vercel.app"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://cinema-now.vercel.app"),
   title: {
     default: "Ciné Now - Découvrez Films et Séries",
     template: "%s | Ciné Now"
@@ -48,7 +48,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    url: process.env.NEXT_PUBLIC_SITE_URL || "https://streaming-platform.vercel.app",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://cinema-now.vercel.app",
     siteName: "Ciné Now",
     title: "Ciné Now - Films et Séries",
     description: "Découvrez les meilleurs films et séries TV avec synopsis, casting et recommandations.",
@@ -79,11 +79,14 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
+  verification: {
+    google: "lU0hnz9MJIkFwJi5Fl54w6aI8cyegv6FfAda8kRjW0o",
+  },
   alternates: {
-    canonical: process.env.NEXT_PUBLIC_SITE_URL || "https://streaming-platform.vercel.app",
+    canonical: process.env.NEXT_PUBLIC_SITE_URL || "https://cinema-now.vercel.app",
     languages: {
-      "fr": process.env.NEXT_PUBLIC_SITE_URL || "https://streaming-platform.vercel.app",
-      "en": `${process.env.NEXT_PUBLIC_SITE_URL}/en` || "https://streaming-platform.vercel.app/en",
+      "fr": process.env.NEXT_PUBLIC_SITE_URL || "https://cinema-now.vercel.app",
+      "en": `${process.env.NEXT_PUBLIC_SITE_URL}/en` || "https://cinema-now.vercel.app/en",
     },
   },
 };
