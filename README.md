@@ -1,4 +1,4 @@
-# 🎬 StreamingPlatform
+# 🎬 CinéNow
 
 Une plateforme de streaming moderne pour découvrir films et séries avec une interface époustouflante.
 

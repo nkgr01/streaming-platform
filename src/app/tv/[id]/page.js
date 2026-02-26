@@ -10,8 +10,8 @@ export async function generateMetadata({ params }) {
     const series = await getTVDetails(id);
     
     return {
-      title: `${series.name} - StreamingPlatform`,
-      description: series.overview?.substring(0, 160) || `Découvrez ${series.name} sur StreamingPlatform`,
+      title: `${series.name} - CinéNow`,
+      description: series.overview?.substring(0, 160) || `Découvrez ${series.name} sur CinéNow`,
       keywords: [series.name, "série TV", "serie", "streaming", ...series.genres?.map(g => g.name) || []],
       openGraph: {
         type: "video.tv_show",
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }) {
       },
     };
   } catch {
-    return { title: "Série - StreamingPlatform" };
+    return { title: "Série - CinéNow" };
   }
 }
 

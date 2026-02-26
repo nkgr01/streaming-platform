@@ -7,8 +7,8 @@ export async function generateMetadata({ params }) {
     const movie = await getMovieDetails(id);
     
     return {
-      title: `${movie.title} - StreamingPlatform`,
-      description: movie.overview?.substring(0, 160) || `Découvrez ${movie.title} sur StreamingPlatform. Consulter le casting, la bande-annonce et les critiques.`,
+      title: `${movie.title} - CinéNow`,
+      description: movie.overview?.substring(0, 160) || `Découvrez ${movie.title} sur CinéNow. Consulter le casting, la bande-annonce et les critiques.`,
       keywords: [
         movie.title,
         "film",
@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
       openGraph: {
         type: "movie.movie",
         url: `${process.env.NEXT_PUBLIC_SITE_URL}/movie/${id}`,
-        title: `${movie.title} - StreamingPlatform`,
+        title: `${movie.title} - CinéNow`,
         description: movie.overview?.substring(0, 160),
         images: movie.poster_path ? [
           {
@@ -55,8 +55,8 @@ export async function generateMetadata({ params }) {
     };
   } catch (error) {
     return {
-      title: "Film - StreamingPlatform",
-      description: "Découvrez ce film sur StreamingPlatform"
+      title: "Film - CinéNow",
+      description: "Découvrez ce film sur CinéNow"
     };
   }
 }

@@ -7,8 +7,8 @@ export async function generateMetadata({ params }) {
     const series = await getTVDetails(id);
     
     return {
-      title: `${series.name} - StreamingPlatform`,
-      description: series.overview?.substring(0, 160) || `Découvrez ${series.name} sur StreamingPlatform. Consulter le casting, la bande-annonce et les critiques.`,
+      title: `${series.name} - CinéNow`,
+      description: series.overview?.substring(0, 160) || `Découvrez ${series.name} sur CinéNow. Consulter le casting, la bande-annonce et les critiques.`,
       keywords: [
         series.name,
         "série TV",
@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
       openGraph: {
         type: "tv.series",
         url: `${process.env.NEXT_PUBLIC_SITE_URL}/tv/${id}`,
-        title: `${series.name} - StreamingPlatform`,
+        title: `${series.name} - CinéNow`,
         description: series.overview?.substring(0, 160),
         images: series.poster_path ? [
           {
@@ -49,8 +49,8 @@ export async function generateMetadata({ params }) {
     };
   } catch (error) {
     return {
-      title: "Série - StreamingPlatform",
-      description: "Découvrez cette série sur StreamingPlatform"
+      title: "Série - CinéNow",
+      description: "Découvrez cette série sur CinéNow"
     };
   }
 }

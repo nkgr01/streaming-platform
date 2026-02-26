@@ -10,8 +10,8 @@ export async function generateMetadata({ params }) {
     const movie = await getMovieDetails(id);
     
     return {
-      title: `${movie.title} - StreamingPlatform`,
-      description: movie.overview?.substring(0, 160) || `Découvrez ${movie.title} sur StreamingPlatform`,
+      title: `${movie.title} - CinéNow`,
+      description: movie.overview?.substring(0, 160) || `Découvrez ${movie.title} sur CinéNow`,
       keywords: [movie.title, "film", "cinema", ...movie.genres?.map(g => g.name) || []],
       openGraph: {
         type: "video.movie",
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }) {
       },
     };
   } catch {
-    return { title: "Film - StreamingPlatform" };
+    return { title: "Film - CinéNow" };
   }
 }
 

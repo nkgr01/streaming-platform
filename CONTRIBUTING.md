@@ -1,6 +1,6 @@
 # 🤝 Guide de Contribution
 
-Merci de votre intérêt pour contribuer à StreamingPlatform ! Ce guide vous permettra de contribuer efficacement.
+Merci de votre intérêt pour contribuer à CinéNow ! Ce guide vous permettra de contribuer efficacement.
 
 ## 📋 Code de Conduite
 

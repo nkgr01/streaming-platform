@@ -88,17 +88,7 @@ export default function AboutModal() {
                 </div>
               </div>
 
-              <div className="border-t border-gray-200 pt-6">
-                <h3 className="text-sm font-semibold text-gray-600 uppercase tracking-wide mb-3">
-                  🛠️ Technologies Utilisées
-                </h3>
-                <div className="grid grid-cols-2 gap-2">
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Next.js 16</span>
-                  <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">React 19</span>
-                  <span className="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm">Tailwind CSS</span>
-                  <span className="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm">TMDB API</span>
-                </div>
-              </div>
+
             </div>
 
             {/* Pied de page */}

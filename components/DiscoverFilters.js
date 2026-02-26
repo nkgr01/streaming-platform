@@ -26,14 +26,18 @@ export default function DiscoverFilters({ onFilterChange }) {
     fetchGenres();
   }, []);
 
-  // Appeler onFilterChange quand les filtres changent
+  // Appeler onFilterChange quand les filtres changent (sans dépendance circulaire)
   useEffect(() => {
-    onFilterChange({
-      genre: selectedGenre,
-      year: selectedYear,
-      minRating: selectedRating,
-      type: contentType
-    });
+    const timer = setTimeout(() => {
+      onFilterChange({
+        genre: selectedGenre,
+        year: selectedYear,
+        minRating: selectedRating,
+        type: contentType
+      });
+    }, 300); // Délai de 300ms pour éviter les appels trop fréquents
+
+    return () => clearTimeout(timer);
   }, [selectedGenre, selectedYear, selectedRating, contentType, onFilterChange]);
 
   const years = Array.from({ length: 30 }, (_, i) => new Date().getFullYear() - i);
@@ -42,7 +46,7 @@ export default function DiscoverFilters({ onFilterChange }) {
     <div className="bg-gray-800 rounded-lg p-6 border border-gray-700 mb-8">
       <h2 className="text-2xl font-bold mb-6">🎬 Filtres de Recherche</h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
         {/* Type de contenu */}
         <div>
           <label className="block text-sm font-semibold text-gray-300 mb-2">

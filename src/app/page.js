@@ -70,7 +70,7 @@ export default function HomePage() {
     script.innerHTML = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "StreamingPlatform",
+      "name": "CinéNow",
       "url": process.env.NEXT_PUBLIC_SITE_URL || "https://streaming-platform.vercel.app",
       "description": "Découvrez films et séries populaires",
       "potentialAction": {
@@ -90,7 +90,7 @@ export default function HomePage() {
       {/* Header avec gradient */}
       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 py-12">
         <div className="max-w-7xl mx-auto px-6">
-          <h1 className="text-5xl font-bold mb-2">🎬 StreamingPlatform</h1>
+          <h1 className="text-5xl font-bold mb-2">🎬 CinéNow</h1>
           <p className="text-gray-100 text-lg">Découvrez vos films et séries préférés</p>
         </div>
       </div>

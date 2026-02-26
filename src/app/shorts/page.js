@@ -7,6 +7,7 @@ import { useWatchlist } from '@hooks/useWatchlist';
 
 export default function ShortsPage() {
   const [videos, setVideos] = useState([]);
+  const [usedIds, setUsedIds] = useState(new Set());
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
@@ -27,12 +28,31 @@ export default function ShortsPage() {
       const newVideos = await res.json();
 
       if (newVideos.length > 0) {
-        setVideos(prev => [...prev, ...newVideos]);
-        setHasMore(newVideos.length === 20); // TMDB limit par page
+        // Filtrer les vidéos et mettre à jour l'état
+        setUsedIds(prevUsedIds => {
+          const filteredVideos = newVideos.filter(video => {
+            const videoId = `${video.media_type}-${video.id}`;
+            return !prevUsedIds.has(videoId);
+          });
+
+          // Ajouter les nouvelles vidéos non-vues
+          if (filteredVideos.length > 0) {
+            setVideos(prev => [...prev, ...filteredVideos]);
+          }
+
+          // Toujours aller à la page suivante si on a du contenu
+          setPage(prev => prev + 1);
+
+          // Mettre à jour les IDs utilisés
+          const updatedUsedIds = new Set(prevUsedIds);
+          newVideos.forEach(video => {
+            updatedUsedIds.add(`${video.media_type}-${video.id}`);
+          });
+          return updatedUsedIds;
+        });
       } else {
         setHasMore(false);
       }
-      setPage(prev => prev + 1);
     } catch (error) {
       console.error('Erreur chargement vidéos:', error);
       setHasMore(false);
@@ -47,6 +67,13 @@ export default function ShortsPage() {
       loadVideos();
     }
   }, []);
+
+  // Charger plus quand page change (après changement de page)
+  useEffect(() => {
+    if (page > 1 && videos.length > 0) {
+      loadVideos();
+    }
+  }, [page]);
 
   // Intersection Observer pour tracker la vidéo visible
   useEffect(() => {

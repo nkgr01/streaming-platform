@@ -48,7 +48,7 @@ export default function TrendingPage() {
     script.innerHTML = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "CollectionPage",
-      "name": "Tendances - StreamingPlatform",
+      "name": "Tendances - CinéNow",
       "url": process.env.NEXT_PUBLIC_SITE_URL || "https://streaming-platform.vercel.app",
       "description": "Les films et séries les plus tendances de la semaine",
       "mainEntity": {

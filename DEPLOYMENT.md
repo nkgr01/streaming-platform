@@ -1,4 +1,4 @@
-# 📚 Guide de Déploiement - StreamingPlatform
+# 📚 Guide de Déploiement - CinéNow
 
 ## Table des matières
 1. [Configuration locale](#configuration-locale)
@@ -55,7 +55,7 @@ npm run dev
 # Si ce n'est pas déjà fait
 git init
 git add .
-git commit -m "Initial commit: StreamingPlatform"
+git commit -m "Initial commit: CinéNow"
 ```
 
 ### Étape 2: Créer un repository sur GitHub
@@ -200,4 +200,4 @@ Get-Process -Id (Get-NetTCPConnection -LocalPort 3000).OwningProcess | Stop-Proc
 
 ---
 
-**Bravo! Votre application StreamingPlatform est maintenant déployée! 🎉**
+**Bravo! Votre application CinéNow est maintenant déployée! 🎉**
